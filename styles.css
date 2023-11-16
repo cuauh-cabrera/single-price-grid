@@ -38,18 +38,25 @@ ol a {
 
 /*CONTAINER*/
 .container {
+    width: 100%;
     background-color: var(--container-bkg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.grid-container {
     width: 100%;
     height: 95vh;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
     justify-items: center;
     align-items: stretch;
 }
 
 /*CARDS*/
-.card {
+article {
     width: 90%;
     height: auto;
     padding-bottom: 1rem;
@@ -161,6 +168,7 @@ p {
 
 /*FOOTER*/
 footer {
+    background-color: var(--container-bkg);
     width: 100%;
     height: auto;
     display: flex;
@@ -178,4 +186,107 @@ footer>p {
 
 footer>p>a:visited {
     color: var(--text-color);
+}
+
+/*1440 px*/
+@media (min-width: 1440px) {
+.container {
+    height: 90vh;
+    padding-top: 1rem;
+}
+
+    .grid-container {
+        width: 65%;
+        height: 85vh;
+        grid-template-areas:
+            'join join'
+            'subscription why';
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        justify-items:center;
+        align-items: stretch;
+    }
+
+    article {
+        justify-content: center;
+        gap: 1.75rem;
+
+    }
+
+    .card--join {
+        grid-area: join;
+        width: 100%;
+        margin: 0;
+    }
+
+    .card--join>h1 {
+        color: var(--us-bkg);
+        font-size: 2rem;
+        margin-left: 2rem;
+    }
+
+    .card--join>h2 {
+        font-size: 1.5rem;
+        margin-left: 2rem;
+    }
+
+    .card--join>p {
+        width: 80%;
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        line-height: 1.8;
+    }
+
+    .card--subs {
+        border-bottom-left-radius: 0.5rem;
+        grid-area: subscription;
+        width: 100%;
+    }
+
+    .card--subs>h1 {
+        margin-left: 2rem;
+        font-size: 2rem;
+    }
+
+    .card--subs>p:first-of-type {
+        margin-left: 2rem;
+        font-size: 2.25rem;
+    }
+
+    .card--subs__price--month {
+        font-size: 1.2rem;
+    }
+
+    .card--subs>p {
+        margin-left: 2rem;
+        font-size: 1.25rem;
+    }
+
+    .card--us {
+        border-bottom-left-radius: 0;
+        grid-area: why;
+        width: 100%;
+        padding-right: 6rem;
+    }
+
+    .card--us>h1 {
+        margin-left: 2rem;
+        font-size: 2rem;
+    }
+
+    .card--us>p {
+        margin-left: 2rem;
+        font-size: 1.25rem;
+    }
+
+    .btn:hover {
+        background-color: var(--white-bkg);
+        color: var(--bright-yellow);
+        border: solid 1px var(--bright-yellow);
+    }
+
+    footer {
+        height:10vh;
+    }
+
 }
